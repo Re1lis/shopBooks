@@ -1,0 +1,100 @@
+.header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1% 5%;
+    position: sticky;
+    top: 0;
+    background: var(--darkgray-color);
+    color: white;
+    margin-bottom: 10px;
+
+
+    .logo-title-block{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+
+        .logo-image{
+            width: 70px;
+            border-radius: var(--border-radius-images);
+            box-shadow: var(--box-shadow);
+        }
+
+
+        .title-header{
+            overflow: hidden;
+            border-right: .15em solid white;
+            white-space: nowrap;
+            font-size: 1.6rem;
+            width: 0;
+            animation: typing 5s infinite;
+            font-size: var(--size-title);
+            font-family: var(--title-font);
+        }
+    }
+
+    .list-header-nav{
+
+
+
+        .list-header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .burger__button-menu{
+            display: none;
+        }
+
+        .catalog-item{
+            padding-bottom: 3px;
+            position: relative;
+            &::after{
+                content: '';
+                width: 0;
+                height: 3px;
+                background-color: orange;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                transition:  0.3s ease; 
+            }
+
+            &:hover::after{
+                width: 100%;
+            }
+        }
+
+        .item-list{
+            font-size: var(--size-main-text);
+            gap: 20px;
+            display: flex;
+        }
+
+        .icons-list{
+            transition-duration: 0.2s;
+
+            &:hover{
+                scale: 1.3;
+            }
+        }
+    }
+
+    .header__button-menu{
+        display: none;
+    }
+}
+
+
+@keyframes typing {
+    0% { width: 0;}
+    60% { width: 100%;}
+    90% {width: 0%;}
+} 
+
+

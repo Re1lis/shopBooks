@@ -1,0 +1,17 @@
+.button{
+    padding: 7px;
+    font-size: var(--main-text);
+    font-family: var(--main-text);
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    border: none;
+    transition: 0.2s ease;
+    width: 100%;
+
+
+    &:hover{
+        outline: 3px solid var(--black-color);
+        background: transparent;
+        color: var(--white-color);
+    }
+}
