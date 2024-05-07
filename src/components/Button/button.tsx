@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './button.css';
 
 interface ChildProps {
-    text?: string;
+    readonly text: string;
     onClick?: () => void;
 }
 

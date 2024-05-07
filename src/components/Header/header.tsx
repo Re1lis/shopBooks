@@ -13,7 +13,7 @@ export default function Header () {
                 <h1 className='title-header'>
                     ТП Books
                 </h1>
-                </Link>
+            </Link>
             <nav className='list-header-nav'>
                 <ul className='list-header'>
                      <li className='item-list catalog-item'>
