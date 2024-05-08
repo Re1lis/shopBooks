@@ -123,6 +123,7 @@
     border-radius: var(--border-radius);
     padding: 30px;
     box-shadow: inset 0 0 20px var(--darkgray-color);
+    margin-bottom: 20px;
 
     .navigation-block-title{
         font-size: var(--size-title);
@@ -171,6 +172,42 @@
             &:hover::after{
                 width: 100%;
             }
+        }
+    }
+}
+
+
+.biography-text-titles{
+    .navigations-titles{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .item-biography-list{
+            width: 100%;
+
+            .name-section-biography, .some-text-biography{
+                width: 100%;
+                text-align: center;
+                font-size: var(--size-main-text);
+                font-family: var(--main-text);
+                font-weight: 700;
+            }
+
+            .some-text-biography{
+                text-align: justify;
+                color: var(--white-color);
+                text-indent: 30px;
+                line-height: 30px;
+                font-weight: 400; 
+                padding: 10px;
+                background: var(--darkgray-color);
+                box-shadow: inset 0 0 10px var(--black-color);
+                border-radius: var(--border-radius); 
+                margin-top: 7px; 
+            }
+
+
         }
     }
 }

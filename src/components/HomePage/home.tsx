@@ -1,15 +1,15 @@
-import './home.css';
+import React, { useEffect, useState } from 'react';
 import Gallery from './gallery';
 import { TypeAnimation } from 'react-type-animation';
 import arrow from '../../../public/icons/square-arrow-down.svg';
-import { useEffect, useState } from 'react';
+import './home.css'; // Подключаем файл со стилями
 
 interface Biography {
     title: string,
     text: string
 }
 
-export default function Home (){
+export default function Home() {
     const [biography, setBiography] = useState<Biography[]>([]);
 
     useEffect(() => {
@@ -18,15 +18,12 @@ export default function Home (){
             .then(data => setBiography(data))
             .catch(error => console.error('Ошибка при загрузке биографии:', error));
     }, []);
-    
-    return(
+
+    return (
         <>
-            <h2 className="title-section-main">
-                Главная страница
-            </h2>
+            <h2 className="title-section-main">Главная страница</h2>
             <div className="container-main">
                 <Gallery />
-
                 <div className="right-side-home">
                     <TypeAnimation
                         sequence={[
@@ -42,25 +39,33 @@ export default function Home (){
                         speed={30}
                         repeat={Infinity}
                         className='short-biography'
-                    /> 
+                    />
                     <br />
                     <h4 className='short-biography for-nav'>
-                        Ниже вы найдете небольшую навигацию, чтобы почитать биографию обо мне, хоть она и не очень большая.
+                        Ниже вы найдете небольшую навигацию, чтобы почитать биографию обо мне.
                     </h4>
                     <a href="#navigate-block">
                         <img src={arrow} alt="" className='arrow-img' />
                     </a>
                 </div>
             </div>
-            
+
             <div id='navigate-block' className="navigation-block">
-                <h4 className='navigation-block-title'>
-                    Блок навигации
-                </h4>
+                <h4 className='navigation-block-title'>Блок навигации</h4>
                 <ul className="navigations-titles">
                     {biography.map((biog, index) => (
                         <li key={index} className="item-biog-list">
                            <a href={`#${biog.title}`}>{biog.title}</a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div className="biography-text-titles">
+                <ul className="navigations-titles">
+                    {biography.map((biog, index) => (
+                        <li key={index} className="item-biography-list">
+                           <h5 id={`${biog.title}`} className='name-section-biography '>{biog.title}</h5>
+                           <p className='some-text-biography '>{biog.text}</p>
                         </li>
                     ))}
                 </ul>

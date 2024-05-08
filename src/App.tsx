@@ -6,6 +6,7 @@ import Catalog from './components/Catalog/catalog';
 import BookPage from './components/BookPage/bookpage';
 import books from '../books.json';
 import Home from './components/HomePage/home';
+import Cart from './components/basket/basket';
 
 function App() {
   const location = useLocation();
@@ -39,6 +40,7 @@ function App() {
                 <Route path='/' element={<Home />}/>
                 <Route path="/catalog" element={<Catalog />} />
                 <Route path="/books/:index" element={<BookPage books={books} />} />
+                <Route path='/basket' element={<Cart/>} />
               </Routes>
             </div>
           </animated.div>

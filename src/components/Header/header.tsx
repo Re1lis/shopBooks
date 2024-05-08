@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import Backet from '../../../public/icons/backetIcon.svg'
 import User from '../../../public/icons/userProfile.svg'
 import LogoSite from '../../../public/logosite/logo-site.png'
+import Cart from '../basket/basket'
 
 export default function Header () {
     return(

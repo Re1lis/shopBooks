@@ -8,12 +8,12 @@ interface Book {
     title: string;
     year: number;
     priceBook: number;
-    textButton: string
+    textButton: string;
+    id: number;
 }
 
 export default function Catalog () {
-    const [books, setBooks] = useState<Book[]>([]);
-    
+    const [books, setBooks] = useState<Book[]>([]);    
     useEffect(() => {
         fetch('books.json')
           .then(response => response.json())
@@ -25,7 +25,7 @@ export default function Catalog () {
               setBooks(booksWithButtonText);
           });
       }, []);
-    
+
     return (
         <>
             <h2 className="title-section">Каталог книг</h2>
