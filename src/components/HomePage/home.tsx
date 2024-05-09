@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Gallery from './gallery';
 import { TypeAnimation } from 'react-type-animation';
 import arrow from '../../../public/icons/square-arrow-down.svg';
-import './home.css'; // Подключаем файл со стилями
+import './home.css'; 
 
 interface Biography {
     title: string,

@@ -7,7 +7,6 @@
   import books from '../books.json';
   import Home from './components/HomePage/home';
   import Cart from './components/basket/basket';
-  import { useState } from 'react';
 
   function App() {
     const location = useLocation();

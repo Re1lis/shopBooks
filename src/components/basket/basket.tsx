@@ -18,7 +18,10 @@ export default function Cart () {
               setBooks(data);
           });
       }, []);
+
+      console.log({books});
       
+
     return(
         <>
             <h3 className="title-basket">Корзина</h3>
