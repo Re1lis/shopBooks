@@ -1,23 +1,11 @@
-import { useEffect, useState } from 'react';
 import Gallery from './gallery';
 import { TypeAnimation } from 'react-type-animation';
 import arrow from '../../../public/icons/square-arrow-down.svg';
 import './home.css'; 
-
-interface Biography {
-    title: string,
-    text: string
-}
+import biography from '../../../biography.json'
 
 export default function Home() {
-    const [biography, setBiography] = useState<Biography[]>([]);
 
-    useEffect(() => {
-        fetch('biography.json')
-            .then(response => response.json())
-            .then(data => setBiography(data))
-            .catch(error => console.error('Ошибка при загрузке биографии:', error));
-    }, []);
 
     return (
         <>
@@ -53,19 +41,19 @@ export default function Home() {
             <div id='navigate-block' className="navigation-block">
                 <h4 className='navigation-block-title'>Блок навигации</h4>
                 <ul className="navigations-titles">
-                    {biography.map((biog, index) => (
+                    {biography.map((biography, index) => (
                         <li key={index} className="item-biog-list">
-                           <a href={`#${biog.title}`}>{biog.title}</a>
+                           <a href={`#${biography.title}`}>{biography.title}</a>
                         </li>
                     ))}
                 </ul>
             </div>
             <div className="biography-text-titles">
                 <ul className="navigations-titles">
-                    {biography.map((biog, index) => (
+                    {biography.map((biography, index) => (
                         <li key={index} className="item-biography-list">
-                           <h5 id={`${biog.title}`} className='name-section-biography '>{biog.title}</h5>
-                           <p className='some-text-biography '>{biog.text}</p>
+                           <h5 id={`${biography.title}`} className='name-section-biography '>{biography.title}</h5>
+                           <p className='some-text-biography '>{biography.text}</p>
                         </li>
                     ))}
                 </ul>
