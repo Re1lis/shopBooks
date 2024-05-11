@@ -67,8 +67,8 @@ export default function RegisterForm () {
                             <button className="regist-button">
                                 Зарегистрироваться 
                             </button>
+                            <Button text='У меня уже есть аккаунт'/> 
                         </Link>
-                        <Button text='У меня уже есть аккаунт'/> 
                     </div>
                 </div>
             </div>

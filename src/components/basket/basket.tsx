@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import books from '../../../books.json';
 import './basket.css'
-import Button from '../Button/button';
 
 export default function Cart() {
     const [cartItems, setCartItems] = useState(books.map(book => ({ ...book, quantity: 1 })));
+    const [watch, setWatch] = useState(true)
 
     const updateQuantity = (index: number, quantity: number) => {
         const updatedItems = [...cartItems];
@@ -16,6 +16,11 @@ export default function Cart() {
         return cartItems.reduce((total, item) => total + (item.priceBook * item.quantity), 0);
     };
 
+    const watchItems = () => {
+        setWatch(!watch)
+        setCartItems(books.map(book => ({ ...book, quantity: 0 })))
+    }
+
     return (
         <>
             <h3 className="title-basket">Корзина</h3>
@@ -23,9 +28,10 @@ export default function Cart() {
             <div className="container-basket">
                 <div className="left-side-basket">
                     <div className="delete-all">
-                        <button className='delete-all-button'>Очистить корзину</button>
+                        <button className='delete-all-button' onClick={watchItems}>Очистить корзину</button>
                     </div>
-                    <div className="container-items-basket">
+                    {watch && (
+                        <div className="container-items-basket">
                         <ul className="list-books-basket">
                             {cartItems.map((item, index) => (
                                 <li key={index} className="item-book-list">
@@ -56,9 +62,10 @@ export default function Cart() {
                             ))}
                         </ul>
                     </div>
+                    )}
                 </div>
                 <div className="right-side-basket">
-                    <Link to={'/'}>
+                    <Link to={'/decor-order'}>
                         <button className="checkout-button">
                             Перейти к оформлению
                         </button>

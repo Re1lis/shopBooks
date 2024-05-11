@@ -1,0 +1,115 @@
+.title-profile-user{
+    text-align: center;
+    font-size: var(--size-title);
+    font-family: var(--title-font);
+    margin-bottom: 50px;
+}
+
+.container-profile{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+
+    .left-side{
+        padding: 30px;
+        border-radius: var(--border-radius);
+        background: var(--darkgray-color);
+        box-shadow: 0 0 10px var(--black-color);
+        width: max-content;
+        color: white;
+        font-family: var(--main-text);
+        font-size: var(--size-main-text);
+
+        .list-section{
+            list-style-type: circle;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .item-list{
+                transition: 0.2s;
+                letter-spacing: 2px;
+                position: relative;
+                transition: 0.2s;
+                z-index: 1;
+                padding: 5px;
+                padding-left: 5px;
+
+                &::after{
+                    content: '';
+                    width: 0;
+                    height: 100%;
+                    background: rgba(0,0,0,0.2);
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    transition:  0.5s ease; 
+                    border-radius: 20px;
+                    z-index: -1;
+                }
+                
+                &:hover{
+                    padding: 20px;
+                    color: white;
+                }
+
+                &:hover::after{
+                    width: 100%;
+                }
+                }
+            }
+    }
+
+}
+
+.profile-cont{
+    padding: 30px;
+        border-radius: var(--border-radius);
+        background: var(--darkgray-color);
+        box-shadow: 0 0 10px var(--black-color);
+        width: max-content;
+        color: white;
+        font-family: var(--main-text);
+        font-size: var(--size-main-text);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    .orders{
+        display: flex;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+
+.orders-container{
+    .subtitle-profile-user{
+        font-size: var(--size-main-text);
+        font-family: var(--title-font);
+        text-align: center;
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+    }
+
+    .list-orders{
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+
+        .item-order-list{
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background: var(--darkgray-color);
+            width: max-content;
+            color: white;
+            font-family: var(--main-text);
+            font-size: var(--size-main-text);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
+}

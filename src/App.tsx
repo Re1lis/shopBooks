@@ -8,8 +8,10 @@
   import Home from './components/HomePage/home';
   import Cart from './components/basket/basket';
   import RegisterForm from './components/ProfileUser/RegisterForm/register-form';
-  
-  const App: React.FC = () => {
+  import Entrance from './components/ProfileUser/EntranceForm/entrance';
+  import Profile from './components/ProfileUser/Profile/profile-user';
+
+export default function App () {
     const location = useLocation();
     const transition = useTransition(location, {
       key: location.pathname,
@@ -44,6 +46,8 @@
                   <Route path="/books/:index" element={<BookPage books={books} />} />
                   <Route path='/basket' element={<Cart/>} />
                   <Route path='/register' element={<RegisterForm/>}></Route>
+                  <Route path='entrance' element={<Entrance/>}></Route>
+                  <Route path='/profile' element={<Profile/>}></Route>
                 </Routes>
               </div>
             </animated.div>
@@ -52,4 +56,3 @@
     );
   }
 
-  export default App;
