@@ -10,6 +10,7 @@
   import RegisterForm from './components/ProfileUser/RegisterForm/register-form';
   import Entrance from './components/ProfileUser/EntranceForm/entrance';
   import Profile from './components/ProfileUser/Profile/profile-user';
+  import DecorOrder from './components/DecorOrder/decor-order';
 
 export default function App () {
     const location = useLocation();
@@ -48,6 +49,7 @@ export default function App () {
                   <Route path='/register' element={<RegisterForm/>}></Route>
                   <Route path='entrance' element={<Entrance/>}></Route>
                   <Route path='/profile' element={<Profile/>}></Route>
+                  <Route path='/decor-order' element={<DecorOrder/>}></Route>
                 </Routes>
               </div>
             </animated.div>
