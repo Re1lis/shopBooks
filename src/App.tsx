@@ -8,7 +8,7 @@
   import Home from './components/HomePage/home';
   import Cart from './components/basket/basket';
 
-  function App() {
+  const App: React.FC = () => {
     const location = useLocation();
     const transition = useTransition(location, {
       key: location.pathname,

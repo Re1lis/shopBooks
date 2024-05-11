@@ -1,44 +1,68 @@
-import { useEffect, useState } from "react";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import books from '../../../books.json';
+import './basket.css'
+import Button from '../Button/button';
 
-interface Book {
-    image: string;
-    title: string;
-    year: number;
-    priceBook: number;
-    id: number;
-}
+export default function Cart() {
+    const [cartItems, setCartItems] = useState(books.map(book => ({ ...book, quantity: 0 })));
 
-export default function Cart () {
-    const [books, setBooks] = useState<Book[]>([]);    
+    const updateQuantity = (index: number, quantity: number) => {
+        const updatedItems = [...cartItems];
+        updatedItems[index].quantity = quantity;
+        setCartItems(updatedItems);
+    };
+    const getTotalPrice = () => {
+        return cartItems.reduce((total, item) => total + (item.priceBook * item.quantity), 0);
+    };
 
-    useEffect(() => {
-        fetch('books.json')
-          .then(response => response.json())
-          .then(data => {
-              setBooks(data);
-          });
-      }, []);
-
-      console.log({books});
-      
-
-    return(
+    return (
         <>
             <h3 className="title-basket">Корзина</h3>
 
             <div className="container-basket">
                 <div className="left-side-basket">
                     <div className="delete-all">
-
+                        <Button  text='Удалить все товары'/>
                     </div>
                     <div className="container-items-basket">
-
+                        <ul className="list-books-basket">
+                            {cartItems.map((item, index) => (
+                                <li key={index} className="item-book-list">
+                                    <div>
+                                    <img src={item.image} alt={item.title} className='book-image-list' />
+                                    <h5 className="title-book-cart">{item.title}</h5>
+                                    </div>
+                                   <div>
+                                   <div className="counter-books">
+                                        <button
+                                            className="counter-button"
+                                            onClick={() => updateQuantity(index, item.quantity + 1)}>
+                                            +
+                                        </button>
+                                        <h5 className="count-book">
+                                            {item.quantity}
+                                        </h5>
+                                        <button
+                                            className="counter-button"
+                                            onClick={() => updateQuantity(index, Math.max( item.quantity - 1))}>
+                                            -
+                                        </button>
+                                    </div>
+                                    <p className="item-price">Цена: {item.priceBook * item.quantity}</p>
+                                    <button className="delete-book-list">X</button>
+                                   </div>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
                 <div className="right-side-basket">
-                    <button className="button-right-side">
-                        Перейти к оформлению
-                    </button>
+                    <Link to={'/'}>
+                        <button className="checkout-button">
+                            Перейти к оформлению
+                        </button>
+                    </Link>
                     <p className="description-basket">
                         Выбрать способ оплаты, а также адрес и способ доставки, можно при оформлении заказа
                     </p>
@@ -46,13 +70,13 @@ export default function Cart () {
                         Ваша корзина
                     </h5>
                     <h6 className="paragraph-right-side-basket">
-                        Количество товаров:
+                        Количество товаров: {cartItems.reduce((total, item) => total + item.quantity, 0)}
                     </h6>
                     <h6 className="paragraph-right-side-basket">
-                        Стоимость:
+                        Стоимость: {getTotalPrice()}
                     </h6>
-                </div>    
-            </div> 
+                </div>
+            </div>
         </>
-    )
+    );
 }
