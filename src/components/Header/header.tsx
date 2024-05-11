@@ -23,7 +23,7 @@ export default function Header () {
                         <Link to={'/basket'}><img src={Backet} alt='Корзина'/></Link>
                      </li>
                      <li className='item-list icons-list'>
-                        <Link to={'/profile-user'}><img src={User} alt='Профиль пользоватея'/></Link>
+                        <Link to={'/register'}><img src={User} alt='Профиль пользоватея'/></Link>
                      </li>
                 </ul>
             </nav>

@@ -7,7 +7,8 @@
   import books from '../books.json';
   import Home from './components/HomePage/home';
   import Cart from './components/basket/basket';
-
+  import RegisterForm from './components/ProfileUser/RegisterForm/register-form';
+  
   const App: React.FC = () => {
     const location = useLocation();
     const transition = useTransition(location, {
@@ -42,6 +43,7 @@
                   <Route path="/catalog" element={<Catalog />} />
                   <Route path="/books/:index" element={<BookPage books={books} />} />
                   <Route path='/basket' element={<Cart/>} />
+                  <Route path='/register' element={<RegisterForm/>}></Route>
                 </Routes>
               </div>
             </animated.div>

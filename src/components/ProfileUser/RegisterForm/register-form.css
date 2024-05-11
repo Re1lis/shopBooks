@@ -1,0 +1,98 @@
+.title-register-form{
+    text-align: center;
+    font-size: var(--size-title);
+    font-family: var(--title-font);
+    margin-bottom: 100px;
+}
+
+.all-container-register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container-register-form{
+        padding: 20px;
+        border-radius: var(--border-radius);
+        background: var(--darkgray-color);
+        box-shadow: 0 0 10px var(--black-color);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .name-surname{
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-input{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            justify-content: space-between;
+
+            .image-form{
+                width: 35px;
+                height: 35px;
+                background: var(--gray-color);
+                padding: 5px;
+                border-radius:var(--border-radius-images);
+            }
+
+            .input-regist{
+                padding: 7px;
+                width: 100%;
+                border-radius: var(--border-radius);
+                border: 1px solid var(--white-color);
+                outline: none;
+                background: transparent;
+                font-size: var(--size-main-text);
+                font-family: var(--main-text);
+                color: var(--white-color);
+                padding-left: 20px;
+
+                &::placeholder{
+                    color: var(--gray-color);
+                }
+            }
+
+            .button-see-pass{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                outline: none;
+                width: 50px;
+                border: none;
+                border-radius: var(--border-radius-images);
+
+            }
+        }
+    }
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+
+    .regist-button{
+        width: 100%;
+        border-radius: var(--border-radius);
+        background: greenyellow;
+        font-size: var(--size-main-text);
+        font-family: var(--main-text);
+        color: var(--black-color);
+        border: none;
+        outline: none;
+        margin-bottom: 10px;
+        transition: 0.2s;
+        padding: 10px 0;
+
+        &:hover{
+            background: var(--black-color);
+            color: greenyellow;
+            box-shadow: 0 0 5px var(--white-color);
+        }
+    }
+}

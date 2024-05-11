@@ -5,7 +5,7 @@ import './basket.css'
 import Button from '../Button/button';
 
 export default function Cart() {
-    const [cartItems, setCartItems] = useState(books.map(book => ({ ...book, quantity: 0 })));
+    const [cartItems, setCartItems] = useState(books.map(book => ({ ...book, quantity: 1 })));
 
     const updateQuantity = (index: number, quantity: number) => {
         const updatedItems = [...cartItems];
@@ -23,7 +23,7 @@ export default function Cart() {
             <div className="container-basket">
                 <div className="left-side-basket">
                     <div className="delete-all">
-                        <Button  text='Удалить все товары'/>
+                        <button className='delete-all-button'>Очистить корзину</button>
                     </div>
                     <div className="container-items-basket">
                         <ul className="list-books-basket">
@@ -49,7 +49,7 @@ export default function Cart() {
                                             -
                                         </button>
                                     </div>
-                                    <p className="item-price">Цена: {item.priceBook * item.quantity}</p>
+                                    <p className="item-price">Цена: {item.priceBook * item.quantity}руб.</p>
                                     <button className="delete-book-list">X</button>
                                    </div>
                                 </li>
@@ -73,7 +73,7 @@ export default function Cart() {
                         Количество товаров: {cartItems.reduce((total, item) => total + item.quantity, 0)}
                     </h6>
                     <h6 className="paragraph-right-side-basket">
-                        Стоимость: {getTotalPrice()}
+                        Стоимость: {getTotalPrice()}руб.
                     </h6>
                 </div>
             </div>
