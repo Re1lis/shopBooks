@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: space-evenly;
     gap: 30px;
+    flex-wrap: wrap;
 
     .left-side{
         padding: 30px;

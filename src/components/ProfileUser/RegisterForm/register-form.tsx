@@ -9,12 +9,15 @@ import key from '/icons/key.svg'
 import Button from '../../Button/button';
 import { Link } from 'react-router-dom';
 
-
+  
 
 export default function RegisterForm () {
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState('');
     const [lockIcon, setLockIcon] = useState(lock);
+
+
+
 
   
     const togglePasswordVisibility = () => {
